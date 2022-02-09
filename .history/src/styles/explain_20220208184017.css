@@ -1,0 +1,14 @@
+.explainLady {
+  height: 90%;
+  position: fixed;
+  z-index: 2;
+  top: 12%;
+  left: 20%;
+}
+.explainLadyEyes {
+  height: 8%;
+  position: fixed;
+  z-index: 2;
+  top:%;
+  left: 30%;
+}

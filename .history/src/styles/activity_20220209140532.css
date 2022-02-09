@@ -1,0 +1,24 @@
+.leftHexagonIcon {
+  position: fixed;
+  height: 50%;
+  left: 10%;
+  top: 15%;
+}
+.rightHexagonIcon {
+  position: fixed;
+  height: 50%;
+  left: 55%;
+  top: 15%;
+}
+.centerHexagonIcon {
+  position: fixed;
+  height: 50%;
+  left: 45%;
+  top: 15%;
+}
+.jugIcon {
+  position: fixed;
+  height: 30%;
+  left: 50%;
+  top: 20%;
+}

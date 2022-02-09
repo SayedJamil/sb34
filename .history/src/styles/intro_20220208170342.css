@@ -1,0 +1,14 @@
+.introScreen {
+  display: flex;
+  justify-content: center;
+}
+.introTitle {
+  height: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+}
+.introTitleBG {
+  height: 90%;
+  position: fixed;
+}

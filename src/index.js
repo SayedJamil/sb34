@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import BackgroundProvider from './contexts/Background';
+import SceneContextProvider from './contexts/SceneContext';
+import SoundContextProvider from './contexts/SoundContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BackgroundProvider>
+    <SceneContextProvider>
+      <SoundContextProvider>
+        <App />
+      </SoundContextProvider>
+    </SceneContextProvider>
+  </BackgroundProvider>
+  ,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

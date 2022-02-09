@@ -1,0 +1,27 @@
+import React, { useContext } from 'react';
+import AssetsMap from '../Asset';
+import { SceneContext } from '../contexts/SceneContext';
+import Image from '../utils/elements/Image';
+import Scenes from '../utils/Scenes';
+import useLoadAsset from '../utils/useLoadAsset'
+import '../styles/intro.css'
+function Intro() {
+    const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
+    const { setSceneId, Assets } = useContext(SceneContext);
+    const { intro } = Assets;
+
+    return (
+        <div className='introScreen'>
+            <Scenes
+                Bg={Bg}
+                sprites={
+
+                    <Image src={intro?.sprites[0]} alt="" className="introTitle" />
+
+                }
+            />
+        </div>
+    )
+}
+
+export default Intro;
