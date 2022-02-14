@@ -8,7 +8,7 @@ import '../styles/intro.css'
 import { Howl } from 'howler';
 function Intro() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
-    const { setSceneId, Assets, setisLoading } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, setAct02Array, setIteration } = useContext(SceneContext);
     const { intro } = Assets;
     const sound = new Howl({
         src: [`internal/audio/SB_34_Audio_01.mp3`],
@@ -30,7 +30,8 @@ function Intro() {
                     <Image src={intro?.sprites[2]} alt="" className="play_btn"
                         onClick={() => {
                             setisLoading(true)
-                            setSceneId('/activity011')
+                            setIteration(1)
+                            setSceneId('/activity021')
                             playSound.stop()
                         }
                         } />

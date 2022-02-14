@@ -3,8 +3,11 @@ import { Howl } from 'howler';
 import { useContext, useEffect, useState } from 'react';
 import { SceneContext } from './contexts/SceneContext';
 import Activity01 from './scenes/Activity01';
+import Activity01End from './scenes/Activity01End';
+import Activity02 from './scenes/Activity02';
 import Explain from './scenes/Explain';
 import Intro from './scenes/Intro';
+import WaterUses from './scenes/WaterUses';
 import './styles/app.css'
 import Image from './utils/elements/Image';
 import GameContainer from './utils/GameContainer';
@@ -96,6 +99,21 @@ function App() {
       </Router>
       <Router sceneId="/activity012">
         <Activity01 />
+      </Router>
+      <Router sceneId="/activity01end">
+        <Activity01End />
+      </Router>
+      <Router sceneId="/wateruses01">
+        <WaterUses />
+      </Router>
+      <Router sceneId="/wateruses02">
+        <WaterUses />
+      </Router>
+      <Router sceneId="/activity021">
+        <Activity02 />
+      </Router>
+      <Router sceneId="/activity022">
+        <Activity02 />
       </Router>
     </GameContainer>
   );

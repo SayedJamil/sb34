@@ -6,15 +6,12 @@
 }
 .Bg_Image {
   position: fixed;
-  height: 100%;
   width: 100%;
   top: 0%;
   left: 0%;
   margin: auto;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
+  background-repeat: repeat-x;
 }
 
 .music_button {

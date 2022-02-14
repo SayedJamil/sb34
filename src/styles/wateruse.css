@@ -1,0 +1,25 @@
+.waterUsesBigIcon {
+  height: 60%;
+  position: fixed;
+  z-index: 2;
+  top: 5%;
+  left: 10%;
+}
+.waterUsesBigText {
+  height: 30%;
+  position: fixed;
+  z-index: 2;
+  top: 20%;
+  left: 45%;
+}
+.waterUsesBottom {
+  display: flex;
+  position: fixed;
+  justify-content: space-evenly;
+  width: 100%;
+  top: 75%;
+  height: 80%;
+}
+.waterUsesSmallIcon {
+  height: 30%;
+}

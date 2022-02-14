@@ -8,7 +8,7 @@ import useLoadAsset from '../utils/useLoadAsset';
 import '../styles/activity.css'
 function Activity01() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01)
-    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum, enableActivity02 } = useContext(SceneContext);
     const { activitytype01 } = Assets;
     const [cl1, setCL1] = useState('')
     const [cl2, setCL2] = useState('')
@@ -20,25 +20,35 @@ function Activity01() {
     const [wrongHL01, setwrongHL01] = useState(false)
     const [wrongHL02, setwrongHL02] = useState(false)
     const [click, setClick] = useState(false)
-    const [jugNum, setJugNum] = useState(1)
     const sound = new Howl({
         src: [`internal/audio/SB_34_Audio_05.mp3`],
+        autoplay: false,
     });
-
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-        playSound.play()
-        randomize()
+        if (!isLoading) {
+            playSound.play()
+        }
         playSound.on('end', () => {
             setClick(true)
         })
+    }, [isLoading])
+    useEffect(() => {
+        randomize()
         if (iteration == 6) {
             setIteration(1)
-            setSceneId('/explain')
+            if (enableActivity02) {
+                setJugNum(1)
+                setSceneId('/activity021')
+            } else {
+                setSceneId('/activity01end')
+            }
+
             setJugNum(1)
         }
     }, [iteration])
+
     const randomize = () => {
         var classnames = ['leftHexagonIcon', 'rightHexagonIcon', 'centerHexagonIcon'];
         var random1 = classnames[Math.floor(Math.random() * classnames.length)];
@@ -61,34 +71,40 @@ function Activity01() {
     }
     const rightAnswerClicked = () => {
         setClick(false)
-        var sound = new Howl({
+        var rightsound = new Howl({
             src: [`internal/audio/SB_34_Audio_06.mp3`],//change here
         });
-        sound.play();
-        sound.on('end', () => {
-
+        rightsound.play();
+        rightsound.on('end', () => {
             setisLoading(true)
             setTimeout(() => {
                 setIteration(iteration + 1)
             }, 3000)
             setCorrectHL(false)
             if (iteration % 2 == 0) {
+                playSound.stop()
                 setSceneId('/activity011')
             } else {
+                playSound.stop()
                 setSceneId('/activity012')
             }
         })
-
+        setJugNum(jugNum + 1)
 
     }
 
     const wrongAnswerClicked = () => {
         setClick(false)
-        setTimeout(() => {
+        var wrongSound = new Howl({
+            src: [`internal/audio/SB_34_Audio_04.mp3`],//change here
+        });
+        wrongSound.play();
+        wrongSound.on('end', () => {
             setClick(true)
             setwrongHL01(false)
             setwrongHL02(false)
-        }, 3000)
+            setClick(true)
+        })
     }
 
     return (
@@ -101,10 +117,10 @@ function Activity01() {
                             if (click) {
                                 setCorrectHL(true)
                                 rightAnswerClicked()
-                                setJugNum(jugNum + 1)
+
                             }
                         }} />
-                    {(correctHL) ? <Image src={activitytype01?.sprites[19]} alt="" className={cl1} /> : null}
+                    {(correctHL) ? <Image src={activitytype01?.sprites[19]} alt="" className={`highlighterAnim ${cl1}`} /> : null}
 
                     <Image src={activitytype01?.sprites[hNw01]} alt="" className={cl2} onClick={() => {
                         if (click) {
@@ -113,7 +129,7 @@ function Activity01() {
                         }
                     }}
                     />
-                    {(wrongHL01) ? <Image src={activitytype01?.sprites[20]} alt="" className={cl2} /> : null}
+                    {(wrongHL01) ? <Image src={activitytype01?.sprites[20]} alt="" className={`highlighterAnim ${cl2}`} /> : null}
 
                     <Image src={activitytype01?.sprites[hNw02]} alt="" className={cl3} onClick={() => {
                         if (click) {
@@ -121,7 +137,7 @@ function Activity01() {
                             wrongAnswerClicked()
                         }
                     }} />
-                    {(wrongHL02) ? <Image src={activitytype01?.sprites[20]} alt="" className={cl3} /> : null}
+                    {(wrongHL02) ? <Image src={activitytype01?.sprites[20]} alt="" className={`highlighterAnim ${cl3}`} /> : null}
                     {(() => {
                         switch (jugNum) {
                             case 1:

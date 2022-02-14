@@ -22,3 +22,168 @@
   left: 43.55%;
   top: 10%;
 }
+
+.highlighterAnim {
+  -webkit-animation: bounce-in-fwd 1.1s both;
+  animation: bounce-in-fwd 1.1s both;
+}
+
+@-webkit-keyframes bounce-in-fwd {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  89% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes bounce-in-fwd {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  89% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+/* Acitivity End 01 */
+
+.activity01endLady {
+  height: 90%;
+  position: fixed;
+  z-index: 2;
+  top: 12%;
+  left: 10%;
+}
+
+.activity01endLadyEyes {
+  height: 7%;
+  position: fixed;
+  z-index: 2;
+  top: 29%;
+  left: 23.5%;
+}
+
+.activity01endJug {
+  height: 35%;
+  position: fixed;
+  z-index: 2;
+  top: 29%;
+  left: 62%;
+}
+
+.leftSquareIcon {
+  position: fixed;
+  height: 65%;
+  left: 15%;
+  top: 10%;
+  z-index: 5;
+}
+.rightSquareIcon {
+  position: fixed;
+  height: 65%;
+  left: 53.55%;
+  z-index: 5;
+  top: 10%;
+}
+.squareJugIcon {
+  position: fixed;
+  height: 30%;
+  left: 43.55%;
+  z-index: 6;
+  top: 63%;
+}
+.circleSquareIcon {
+  position: fixed;
+  height: 45%;
+  left: 40%;
+  top: 55%;
+  z-index: 6;
+}
