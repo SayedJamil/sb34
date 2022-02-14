@@ -25,6 +25,7 @@ function Activity01End() {
         });
         playSound.on('end', () => {
             sound.play()
+            setSceneId('/wateruses01')
         })
     }, [isLoading])
     return (

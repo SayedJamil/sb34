@@ -21,6 +21,10 @@ function Explain() {
     useEffect(() => {
         setisLoading(false)
         playSound.play()
+        playSound.on('end', () => {
+            setisLoading(true)
+            setSceneId('/activity011')
+        })
     }, [])
     return (
         <Scenes

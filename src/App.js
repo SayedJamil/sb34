@@ -27,7 +27,6 @@ function App() {
     const unmute = await LoadImage(`internal/button/Buttons-20.svg`);
     const mute = await LoadImage(`internal/button/Buttons-26.svg`);
     setSoundButton(unmute);
-    console.log(unmute)
     setNoSoundButton(mute);
   };
   const loadAudio = () => {
@@ -71,11 +70,11 @@ function App() {
     loadLottie()
   }, []);
 
-  // if (Load) return (
-  //   <div class="circle">
-  //     <div class="wave"></div>
-  //   </div>
-  // )
+  if (Load) return (
+    <div class="circle">
+      <div class="wave"></div>
+    </div>
+  )
 
   const toggleMute = () => { setmute(!mute) }
 

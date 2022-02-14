@@ -25,7 +25,7 @@ export default function Scenes({ sprites, Bg = "" }) {
     if (isLoading) {
       setTimeout(() => {
         setisLoading(false)
-      }, 1000)//change time here to 3000
+      }, 2000)//change time here to 3000
     }
   }, [isLoading])
   return (
@@ -37,7 +37,7 @@ export default function Scenes({ sprites, Bg = "" }) {
         src={`data:image/svg+xml;utf8,${encodeURIComponent(Bg)}`} />}
 
 
-      {/* <div
+      <div
         className="transition_style"
         ref={containerRef2}
         id='placeholder'
@@ -51,7 +51,7 @@ export default function Scenes({ sprites, Bg = "" }) {
           transform: "translate(-50%,-50%)",
           backgroundColor: "black"
         }}
-      ></div> */}
+      ></div>
 
       {sprites}
     </div>

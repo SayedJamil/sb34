@@ -31,7 +31,7 @@ function Intro() {
                         onClick={() => {
                             setisLoading(true)
                             setIteration(1)
-                            setSceneId('/activity021')
+                            setSceneId('/explain')
                             playSound.stop()
                         }
                         } />
