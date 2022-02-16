@@ -17,10 +17,11 @@ export default function SceneContextProvider({ children }) {
   const [act02array, setAct02Array] = useState([])
   // loading part
   useEffect(() => {
-    setTimeout(() => {
-      setisLoading(false)
-    }, 3500)
-
+    if (isLoading) {
+      setTimeout(() => {
+        setisLoading(false)
+      }, 3000)//change time here to 3000
+    }
   }, [isLoading])
 
   return (

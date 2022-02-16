@@ -13,7 +13,7 @@ function Activity02() {
     const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum, enableActivity02, act02array, setAct02Array, bubbleNum, setBubbleNum } = useContext(SceneContext);
     const { activitytype02 } = Assets;
     const [correctOptionSide, setCorrectOptionSide] = useState('')
-    const [clickedOption, setClickedOption] = useState('')
+
     const [iconNum, setIconNum] = useState()
     const [leftCorrectHL, setLeftCorrectHL] = useState(false)
     const [leftWrongHL, setLeftWrongHL] = useState(false)
@@ -28,20 +28,21 @@ function Activity02() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        if (act02array.length === 7) {
+            setSceneId('/activity02end')
+        }
         if (!isLoading) {
             playSound.play()
             randomize()
         }
         playSound.on('end', () => {
             setClick(true)
+            console.log('Click now')
         })
-        console.log(act02array.length)
-        console.log(bubbleNum)
-        if (act02array.length == 8) {
-            setSceneId('/')
-        }
-    }, [isLoading])
+        console.log('Number of items in the array', act02array.length)
+        console.log('Current bubble number', bubbleNum)
 
+    }, [isLoading])
 
     const randomize = () => {
         var randomNumber = Math.floor(Math.random() * (12 - 0 + 1)) + 0;
@@ -64,35 +65,37 @@ function Activity02() {
                     setCorrectOptionSide('Right')
                 }
                 setAct02Array([...act02array, randomNumber]);
-                console.log(act02array)
+                console.log("Currently in the array", act02array)
             } else {
                 randomize()
+            }
+        }
+    }
+
+    const handleButtonClick = (sideClicked) => {
+        if (click) {
+            if (correctOptionSide === 'Left' && sideClicked === 'Left') {
+                setLeftCorrectHL(true)
+                rightAnswerClicked()
+            }
+            if (correctOptionSide === 'Left' && sideClicked === 'Right') {
+                setRightWrongHL(true)
+                wrongAnswerClicked()
+            }
+            if (correctOptionSide === 'Right' && sideClicked === 'Left') {
+                setLeftWrongHL(true)
+                wrongAnswerClicked()
+            }
+            if (correctOptionSide === 'Right' && sideClicked === 'Right') {
+                setRightCorrectHL(true)
+                rightAnswerClicked()
             }
         }
 
     }
 
-    const handleButtonClick = () => {
-        setClick(false)
-        if (correctOptionSide === 'Left' && clickedOption === 'Left') {
-            setLeftCorrectHL(true)
-            rightAnswerClicked()
-        }
-        if (correctOptionSide === 'Left' && clickedOption === 'Right') {
-            setRightWrongHL(true)
-            wrongAnswerClicked()
-        }
-        if (correctOptionSide === 'Right' && clickedOption === 'Left') {
-            setLeftWrongHL(true)
-            wrongAnswerClicked()
-        }
-        if (correctOptionSide === 'Right' && clickedOption === 'Right') {
-            setRightCorrectHL(true)
-            rightAnswerClicked()
-        }
-    }
     const rightAnswerClicked = () => {
-
+        setClick(false)
         var rightsound = new Howl({
             src: [`internal/audio/SB_34_Audio_06.mp3`],//change here
         });
@@ -102,20 +105,24 @@ function Activity02() {
             setTimeout(() => {
                 setIteration(iteration + 1)
             }, 3000)
-            if (iteration % 2 == 0) {
-                playSound.stop()
-                setSceneId('/activity021')
-            } else {
-                playSound.stop()
-                setSceneId('/activity022')
-            }
+            if (act02array.length === 8) {
+                setSceneId('/')
+            } else
+                if (iteration % 2 == 0) {
+                    playSound.stop()
+                    setSceneId('/activity021')
+                } else {
+                    playSound.stop()
+                    setSceneId('/activity022')
+                }
+            setClick(true)
         })
         setJugNum(jugNum + 1)
 
     }
 
     const wrongAnswerClicked = () => {
-
+        setClick(false)
         var rightsound = new Howl({
             src: [`internal/audio/SB_34_Audio_04.mp3`],//change here
         });
@@ -136,28 +143,21 @@ function Activity02() {
                     <Image src={activitytype02?.sprites[iconNum]} alt=""
                         className="leftSquareIcon"
                         onClick={() => {
-                            if (click) {
-                                setClickedOption('Left')
-                                handleButtonClick()
-                            }
-
+                            handleButtonClick('Left')
                         }} />
                     {/* <Image src={activitytype02?.sprites[14]} alt="" className="leftSquareIcon" /> */}
-                    {(leftCorrectHL) ? <Image src={activitytype02?.sprites[14]} alt="" className="leftSquareIcon" /> : null}
-                    {(leftWrongHL) ? <Image src={activitytype02?.sprites[15]} alt="" className="leftSquareIcon" /> : null}
+                    {(leftCorrectHL) ? <Image src={activitytype02?.sprites[14]} alt="" className="leftSquareIcon highlighterAnim" /> : null}
+                    {(leftWrongHL) ? <Image src={activitytype02?.sprites[15]} alt="" className="leftSquareIcon highlighterAnim" /> : null}
 
                     <Image src={activitytype02?.sprites[iconNum + 1]} alt=""
                         className="rightSquareIcon"
                         onClick={() => {
-                            if (click) {
-                                setClickedOption('Right')
-                                handleButtonClick()
-                            }
-
+                            handleButtonClick('Right')
                         }} />
+
                     {/* <Image src={activitytype02?.sprites[16]} alt="" className="rightSquareIcon" /> */}
-                    {(rightCorrectHL) ? <Image src={activitytype02?.sprites[16]} alt="" className="rightSquareIcon" /> : null}
-                    {(rightWrongHL) ? <Image src={activitytype02?.sprites[17]} alt="" className="rightSquareIcon" /> : null}
+                    {(rightCorrectHL) ? <Image src={activitytype02?.sprites[16]} alt="" className="rightSquareIcon highlighterAnim" /> : null}
+                    {(rightWrongHL) ? <Image src={activitytype02?.sprites[17]} alt="" className="rightSquareIcon highlighterAnim" /> : null}
 
                     <Image src={activitytype02?.sprites[26]} alt="" className="circleSquareIcon" />
                     {(() => {

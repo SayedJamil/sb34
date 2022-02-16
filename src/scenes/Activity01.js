@@ -8,7 +8,7 @@ import useLoadAsset from '../utils/useLoadAsset';
 import '../styles/activity.css'
 function Activity01() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01)
-    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum, enableActivity02 } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum } = useContext(SceneContext);
     const { activitytype01 } = Assets;
     const [cl1, setCL1] = useState('')
     const [cl2, setCL2] = useState('')
@@ -34,18 +34,13 @@ function Activity01() {
             setClick(true)
         })
     }, [isLoading])
+
     useEffect(() => {
         randomize()
-        if (iteration == 6) {
-            setIteration(1)
-            if (enableActivity02) {
-                setJugNum(1)
-                setSceneId('/activity021')
-            } else {
-                setSceneId('/activity01end')
-            }
-
-            setJugNum(1)
+        if (iteration > 5) {
+            setSceneId('/activity01end')
+            // setIteration(1)
+            // setJugNum(1)
         }
     }, [iteration])
 
@@ -77,17 +72,18 @@ function Activity01() {
         rightsound.play();
         rightsound.on('end', () => {
             setisLoading(true)
-            setTimeout(() => {
-                setIteration(iteration + 1)
-            }, 3000)
+            setIteration(iteration + 1)
             setCorrectHL(false)
-            if (iteration % 2 == 0) {
-                playSound.stop()
-                setSceneId('/activity011')
-            } else {
-                playSound.stop()
-                setSceneId('/activity012')
-            }
+            if (iteration > 5) {
+                setSceneId('/activity01end')
+            } else
+                if (iteration % 2 == 0) {
+                    playSound.stop()
+                    setSceneId('/activity011')
+                } else {
+                    playSound.stop()
+                    setSceneId('/activity012')
+                }
         })
         setJugNum(jugNum + 1)
 

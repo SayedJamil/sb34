@@ -21,13 +21,13 @@ export default function Scenes({ sprites, Bg = "" }) {
     }
 
   }, [transition, isLoading]);
-  useEffect(() => {
-    if (isLoading) {
-      setTimeout(() => {
-        setisLoading(false)
-      }, 2000)//change time here to 3000
-    }
-  }, [isLoading])
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     setTimeout(() => {
+  //       setisLoading(false)
+  //     }, 3000)//change time here to 3000
+  //   }
+  // }, [isLoading])
   return (
     <div id="vision">
       {Bg !== "" && <img

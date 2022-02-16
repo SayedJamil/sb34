@@ -44,7 +44,7 @@ const AssetsMap = {
             `${audio}SB_26_Audio_07.mp3`,
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
+            `${lottie}Scene_02.json`,
         ]
     },
     // 
@@ -64,7 +64,7 @@ const AssetsMap = {
             `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_01.svg`,//09
             `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_02.svg`,//10
             `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_03.svg`,//11
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_04.svg`,//12
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_11.svg`,//12
             `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_05.svg`,//13
             `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_06.svg`,//14
             `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_07.svg`,//15
@@ -92,15 +92,27 @@ const AssetsMap = {
         id: "activitytype01end",
         Bg: `${bg}SB_34_BG_1.svg`,
         sprites: [
-            `${character}SB_34_CI_Lady_2.svg`,
-            `${character}SB_34_CI_Lady_Eye_1.svg`,
             `${jug}SB_34_Jug_06.svg`,
         ],
         sounds: [
             `${audio}SB_26_Audio_07.mp3`,
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
+            `${lottie}Scene_15.json`,
+            `${lottie}Scene_38.json`,
+        ]
+    },
+    activity02end: {
+        id: "activitytype02end",
+        Bg: `${bg}SB_34_BG_1.svg`,
+        sprites: [
+            `${jug}SB_34_Jug_06.svg`,
+        ],
+        sounds: [
+            `${audio}SB_26_Audio_07.mp3`,
+        ],
+        lottie: [
+            `${lottie}Scene_53.json`,
         ]
     },
 
@@ -192,7 +204,54 @@ const AssetsMap = {
             `${lottie}Scene_07/SB_26_Scene_07.json`,
         ]
     },
-
+    saveWater: {
+        id: "savewaterscene",
+        Bg: `${bg}SB_34_BG_1.svg`,
+        sprites: [
+            `${text}SB_34_TI_10.svg`,//0
+            `${text}SB_34_TI_11.svg`,//1
+            `${text}SB_34_TI_12.svg`,//2
+            `${text}SB_34_TI_13.svg`,//3
+            `${text}SB_34_TI_14.svg`,//4
+            `${text}SB_34_TI_15.svg`,//5
+            `${text}SB_34_TI_19.svg`,//6
+            `${text}SB_34_TI_26.svg`,//7
+            `${text}SB_34_TI_27.svg`,//8
+            `${text}SB_34_TI_28.svg`,//9
+            `${text}SB_34_TI_29.svg`,//10
+            `${text}SB_34_TI_30.svg`,//11
+            `${bubbleIconsActive}SB_34_Bubble-Icon_10.svg`,//12
+            `${bubbleIconsActive}SB_34_Bubble-Icon_11.svg`,//13
+            `${bubbleIconsActive}SB_34_Bubble-Icon_12.svg`,//14
+            `${bubbleIconsActive}SB_34_Bubble-Icon_13.svg`,//15
+            `${bubbleIconsActive}SB_34_Bubble-Icon_14.svg`,//16
+            `${bubbleIconsActive}SB_34_Bubble-Icon_15.svg`,//17
+            `${bubbleIconsActive}SB_34_Bubble-Icon_19.svg`,//18
+            `${bubbleIconsActive}SB_34_Bubble-Icon_26.svg`,//19
+            `${bubbleIconsActive}SB_34_Bubble-Icon_27.svg`,//20
+            `${bubbleIconsActive}SB_34_Bubble-Icon_28.svg`,//21
+            `${bubbleIconsActive}SB_34_Bubble-Icon_29.svg`,//22
+            `${bubbleIconsActive}SB_34_Bubble-Icon_30.svg`,//23
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_10.svg`,//24
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_11.svg`,//25
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_12.svg`,//26
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_13.svg`,//27
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_14.svg`,//28
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_15.svg`,//29
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_19.svg`,//30
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_26.svg`,//31
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_27.svg`,//32
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_28.svg`,//34
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_29.svg`,//35
+            `${bubbleIconsInActive}SB_34_Bubble-Icon_30.svg`,//36
+        ],
+        sounds: [
+            `${audio}SB_26_Audio_07.mp3`,
+        ],
+        lottie: [
+            `${lottie}Scene_07/SB_26_Scene_07.json`,
+        ]
+    },
 
 }
 

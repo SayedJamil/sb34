@@ -28,7 +28,6 @@ function WaterUses() {
 
     useEffect(() => {
         playSound.on('end', () => {
-
             if (bubbleNum == 5) {
                 setTimeout(() => {
                     setBubbleNum(bubbleNum + 1)
@@ -44,6 +43,7 @@ function WaterUses() {
                     setEnableActivity02(true)
                     setSceneId('/activity011')
                     setBubbleNum(0)
+                    setDisableIcon(0)
                 }, 3000)
 
             } else {

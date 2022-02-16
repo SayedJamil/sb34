@@ -5,8 +5,10 @@ import { SceneContext } from './contexts/SceneContext';
 import Activity01 from './scenes/Activity01';
 import Activity01End from './scenes/Activity01End';
 import Activity02 from './scenes/Activity02';
+import Activity02End from './scenes/Activity02End';
 import Explain from './scenes/Explain';
 import Intro from './scenes/Intro';
+import SaveWater from './scenes/SaveWater';
 import WaterUses from './scenes/WaterUses';
 import './styles/app.css'
 import Image from './utils/elements/Image';
@@ -70,11 +72,11 @@ function App() {
     loadLottie()
   }, []);
 
-  if (Load) return (
-    <div class="circle">
-      <div class="wave"></div>
-    </div>
-  )
+  // if (Load) return (
+  //   <div class="circle">
+  //     <div class="wave"></div>
+  //   </div>
+  // )
 
   const toggleMute = () => { setmute(!mute) }
 
@@ -102,6 +104,9 @@ function App() {
       <Router sceneId="/activity01end">
         <Activity01End />
       </Router>
+      <Router sceneId="/activity02end">
+        <Activity02End />
+      </Router>
       <Router sceneId="/wateruses01">
         <WaterUses />
       </Router>
@@ -113,6 +118,12 @@ function App() {
       </Router>
       <Router sceneId="/activity022">
         <Activity02 />
+      </Router>
+      <Router sceneId="/savewater01">
+        <SaveWater />
+      </Router>
+      <Router sceneId="/savewater02">
+        <SaveWater />
       </Router>
     </GameContainer>
   );

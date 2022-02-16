@@ -31,7 +31,7 @@ function Intro() {
                         onClick={() => {
                             setisLoading(true)
                             setIteration(1)
-                            setSceneId('/explain')
+                            setSceneId('/explain')//change scenes here
                             playSound.stop()
                         }
                         } />
