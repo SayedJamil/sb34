@@ -12,7 +12,7 @@ function Intro() {
     const { setSceneId, Assets, setisLoading, setAct02Array, setIteration } = useContext(SceneContext);
     const { intro } = Assets;
     const sound = new Howl({
-        src: [`internal/audio/SB_34_Audio_01.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_01.mp3`],
     });
 
     const [playSound, setPlaySound] = useState(sound)

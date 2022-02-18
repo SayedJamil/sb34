@@ -22,7 +22,7 @@ function Activity02() {
     const [click, setClick] = useState(false)
 
     const sound = new Howl({
-        src: [`internal/audio/SB_34_Audio_20.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_20.mp3`],
         autoplay: false,
     });
     const [playSound, setPlaySound] = useState(sound)
@@ -97,11 +97,11 @@ function Activity02() {
     const rightAnswerClicked = () => {
         setClick(false)
         var rightsfx = new Howl({
-            src: [`internal/audio/Correct-answer.mp3`],//change here
+            src: [`ee02_ow_tvhd_pl1/audio/Correct-answer.mp3`],//change here
         });
         rightsfx.play();
         var rightsound = new Howl({
-            src: [`internal/audio/SB_34_Audio_06.mp3`],//change here
+            src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_06.mp3`],//change here
         });
         rightsfx.on('end', () => {
             rightsound.play();
@@ -130,11 +130,11 @@ function Activity02() {
     const wrongAnswerClicked = () => {
         setClick(false)
         var wrongSfx = new Howl({
-            src: [`internal/audio/Wrong-answer.mp3`],//change here
+            src: [`ee02_ow_tvhd_pl1/audio/Wrong-answer.mp3`],//change here
         });
         wrongSfx.play()
         var wrongSound = new Howl({
-            src: [`internal/audio/SB_34_Audio_04.mp3`],//change here
+            src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_04.mp3`],//change here
         });
         wrongSfx.on('end', () => {
             wrongSound.play();

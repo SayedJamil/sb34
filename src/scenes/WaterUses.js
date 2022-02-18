@@ -13,7 +13,7 @@ function WaterUses() {
     var audioNum = String(bubbleNum)
     console.log(audioNum)
     const sound = new Howl({
-        src: [`internal/audio/usesAudio/SB_34_Audio_${audioNum}.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/usesAudio/SB_34_Audio_${audioNum}.mp3`],
         autoplay: false,
     });
     const [playSound, setPlaySound] = useState(sound)

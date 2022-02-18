@@ -14,10 +14,10 @@ function End() {
     const { endscene } = Assets;
     const Ref20 = useRef(null);
     const sound = new Howl({
-        src: [`internal/audio/children_clapping.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/children_clapping.mp3`],
     });
     const welldonesound = new Howl({
-        src: [`internal/audio/SB_34_Audio_26.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_26.mp3`],
     });
     // SB_34_Audio_26
     const [playSound, setPlaySound] = useState(sound)

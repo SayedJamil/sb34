@@ -14,7 +14,7 @@ function Explain() {
     const { explain } = Assets;
     const Ref1 = useRef(null);
     const sound = new Howl({
-        src: [`internal/audio/SB_34_Audio_02.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_02.mp3`],
     });
 
     const [playSound, setPlaySound] = useState(sound)

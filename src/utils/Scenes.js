@@ -15,7 +15,7 @@ export default function Scenes({ sprites, Bg = "" }) {
         setisLoading(false)
       }, 3000)//change time here to 3000
       // var bubblesfx = new Howl({
-      //   src: [`internal/audio/Bubble-pops-sound.mp3`],//change here
+      //   src: [`ee02_ow_tvhd_pl1/audio/Bubble-pops-sound.mp3`],//change here
       //   volume: 0.5,
       // });
       // bubblesfx.play();

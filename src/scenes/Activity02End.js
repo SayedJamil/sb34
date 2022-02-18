@@ -14,7 +14,7 @@ function Activity02End() {
     const { activitytype02end } = Assets;
     const Ref4 = useRef(null);
     const sound = new Howl({
-        src: [`internal/audio/SB_34_Audio_16.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_16.mp3`],
         autoplay: false,
     });
     const [playSound, setPlaySound] = useState(sound)
@@ -28,7 +28,7 @@ function Activity02End() {
             lottie.play()
         })
         const sound = new Howl({
-            src: [`internal/audio/SB_34_Audio_17.mp3`],
+            src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_17.mp3`],
             autoplay: false,
         });
 
