@@ -62,14 +62,21 @@ function Activity02End() {
 
     }, [Assets, Loading])
 
-
+    const handleNextClick = () => {
+        playSound.stop()
+        setisLoading(true)
+        setBubbleNum(6)
+        setDisableIcon(0)
+        setSceneId('/savewater01')
+    }
 
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
-
+                    <Image src={activitytype02end?.sprites[1]} alt="" className="next_btn"
+                        onClick={() => handleNextClick()} />
                     <div ref={Ref4} className="activity02endLady" id="activity02EndLady"></div>
 
 

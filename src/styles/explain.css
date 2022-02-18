@@ -5,3 +5,12 @@
   top: 10%;
   left: 20%;
 }
+
+.next_btn {
+  position: fixed;
+  height: 15%;
+  z-index: 1;
+  left: 90%;
+  top: 81%;
+  cursor: pointer;
+}

@@ -79,12 +79,22 @@ function Activity01End() {
         }
 
     }, [Assets, Loading])
-
+    const handleNextClick = () => {
+        playSound.stop()
+        setisLoading(true)
+        if (enableActivity02) {
+            setSceneId('/activity021')
+        } else {
+            setSceneId('/wateruses01')
+        }
+    }
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
+                    <Image src={activitytype01end?.sprites[1]} alt="" className="next_btn"
+                        onClick={() => handleNextClick()} />
                     {
                         (!enableActivity02)
                             ? <div ref={Ref2} className="activity01endLady" id="activity01EndLady"></div>

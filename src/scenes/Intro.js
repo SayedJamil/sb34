@@ -6,6 +6,7 @@ import Scenes from '../utils/Scenes';
 import useLoadAsset from '../utils/useLoadAsset'
 import '../styles/intro.css'
 import { Howl } from 'howler';
+
 function Intro() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
     const { setSceneId, Assets, setisLoading, setAct02Array, setIteration } = useContext(SceneContext);
@@ -18,6 +19,10 @@ function Intro() {
 
     useEffect(() => {
         playSound.play()
+        playSound.on('stop', () => {
+            setisLoading(true)
+            setSceneId('/explain')//change scenes here
+        })
     }, [])
 
     return (
@@ -29,9 +34,7 @@ function Intro() {
                     <Image src={intro?.sprites[1]} alt="" className="introTitleBG" />
                     <Image src={intro?.sprites[2]} alt="" className="play_btn"
                         onClick={() => {
-                            setisLoading(true)
                             setIteration(1)
-                            setSceneId('/explain')//change scenes here
                             playSound.stop()
                         }
                         } />

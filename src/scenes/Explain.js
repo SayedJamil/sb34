@@ -10,7 +10,7 @@ import lottie from 'lottie-web';
 
 function Explain() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.explain)
-    const { setSceneId, Assets, setisLoading } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, isLoading } = useContext(SceneContext);
     const { explain } = Assets;
     const Ref1 = useRef(null);
     const sound = new Howl({
@@ -20,13 +20,15 @@ function Explain() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-        setisLoading(false)
-        playSound.play()
+        if (!isLoading) {
+            playSound.play()
+        }
         playSound.on('end', () => {
             setisLoading(true)
             setSceneId('/activity011')
         })
-    }, [])
+    }, [isLoading])
+
     useEffect(() => {
         if (explain?.lottie && Ref1.current && !Loading) {
             try {
@@ -50,7 +52,13 @@ function Explain() {
             Bg={Bg}
             sprites={
                 <div className='introScreen'>
-                 
+                    <Image src={explain?.sprites[2]} alt="" className="next_btn"
+                        onClick={() => {
+                            playSound.stop()
+                            setisLoading(true)
+                            setSceneId('/activity011')//change scenes here
+                        }
+                        } />
                     <div ref={Ref1} className="explainLady" id="explainSceneLady"></div>
                 </div>
             }

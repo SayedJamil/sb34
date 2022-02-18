@@ -6,6 +6,7 @@ import Activity01 from './scenes/Activity01';
 import Activity01End from './scenes/Activity01End';
 import Activity02 from './scenes/Activity02';
 import Activity02End from './scenes/Activity02End';
+import End from './scenes/End';
 import Explain from './scenes/Explain';
 import Intro from './scenes/Intro';
 import SaveWater from './scenes/SaveWater';
@@ -35,7 +36,7 @@ function App() {
     const bg_sound = new Howl({
       src: [`internal/audio/Entire_video_song.mp3`],
       loop: true,
-      volume: 0.1,
+      volume: 0.5,
       autoplay: true
     })
     bg_sound.play()
@@ -66,17 +67,17 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 4000)
+    }, 2000)
     loadBgImage()
     loadAudio()
     loadLottie()
   }, []);
 
-  // if (Load) return (
-  //   <div class="circle">
-  //     <div class="wave"></div>
-  //   </div>
-  // )
+  if (Load) return (
+    <div class="circle">
+      <div class="wave"></div>
+    </div>
+  )
 
   const toggleMute = () => { setmute(!mute) }
 
@@ -124,6 +125,9 @@ function App() {
       </Router>
       <Router sceneId="/savewater02">
         <SaveWater />
+      </Router>
+      <Router sceneId="/end">
+        <End />
       </Router>
     </GameContainer>
   );

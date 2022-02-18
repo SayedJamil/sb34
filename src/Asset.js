@@ -22,13 +22,12 @@ const AssetsMap = {
         sprites: [
             `${bg}SB_34_Intro-BG_Water-Title.svg`,
             `${bg}SB_34_Intro-BG_Water.svg`,
-            `${button}Buttons-12.svg`,
+            `${button}Buttons-03.svg`,
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
         ]
     },
     // public\internal\character\SB_34_CI_Lady_1.svg
@@ -39,9 +38,10 @@ const AssetsMap = {
             `${character}SB_34_CI_Lady_1.svg`,
             `${character}SB_34_CI_Lady_Eye_1.svg`,
             `${button}Buttons-12.svg`,
+
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
             `${lottie}Scene_02.json`,
@@ -81,10 +81,10 @@ const AssetsMap = {
             `${jug}SB_34_Jug_06.svg`,
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
+
         ]
     },
 
@@ -93,9 +93,10 @@ const AssetsMap = {
         Bg: `${bg}SB_34_BG_1.svg`,
         sprites: [
             `${jug}SB_34_Jug_06.svg`,
+            `${button}Buttons-12.svg`,
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
             `${lottie}Scene_15.json`,
@@ -107,9 +108,10 @@ const AssetsMap = {
         Bg: `${bg}SB_34_BG_1.svg`,
         sprites: [
             `${jug}SB_34_Jug_06.svg`,
+            `${button}Buttons-12.svg`,
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
             `${lottie}Scene_53.json`,
@@ -158,10 +160,10 @@ const AssetsMap = {
             `${bubbleIconsInActive}SB_34_Bubble-Icon_30.svg`,//36
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
+
         ]
     },
     activity02: {
@@ -198,10 +200,10 @@ const AssetsMap = {
             // public\internal\icons\SB_34_Circle-Icon.svg
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
+
         ]
     },
     saveWater: {
@@ -246,13 +248,25 @@ const AssetsMap = {
             `${bubbleIconsInActive}SB_34_Bubble-Icon_30.svg`,//36
         ],
         sounds: [
-            `${audio}SB_26_Audio_07.mp3`,
+
         ],
         lottie: [
-            `${lottie}Scene_07/SB_26_Scene_07.json`,
+
         ]
     },
+    end: {
+        id: "endscene",
+        Bg: `${bg}BG.svg`,
+        sprites: [
+            `${button}Buttons-07.svg`,
+        ],
+        sounds: [
 
+        ],
+        lottie: [
+            `${lottie}welldone_1.json`,
+        ]
+    },
 }
 
 export default AssetsMap;

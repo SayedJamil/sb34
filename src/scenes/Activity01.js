@@ -38,6 +38,7 @@ function Activity01() {
     useEffect(() => {
         randomize()
         if (iteration > 5) {
+            setisLoading(true)
             setSceneId('/activity01end')
             // setIteration(1)
             // setJugNum(1)
@@ -66,15 +67,21 @@ function Activity01() {
     }
     const rightAnswerClicked = () => {
         setClick(false)
+        var rightsfx = new Howl({
+            src: [`internal/audio/Correct-answer.mp3`],//change here
+        });
+        rightsfx.play();
         var rightsound = new Howl({
             src: [`internal/audio/SB_34_Audio_06.mp3`],//change here
         });
-        rightsound.play();
+        rightsfx.on('end', () => {
+            rightsound.play();
+        });
         rightsound.on('end', () => {
-            setisLoading(true)
             setIteration(iteration + 1)
             setCorrectHL(false)
             if (iteration > 5) {
+                setisLoading(true)
                 setSceneId('/activity01end')
             } else
                 if (iteration % 2 == 0) {
@@ -91,10 +98,16 @@ function Activity01() {
 
     const wrongAnswerClicked = () => {
         setClick(false)
+        var wrongSfx = new Howl({
+            src: [`internal/audio/Wrong-answer.mp3`],//change here
+        });
+        wrongSfx.play()
         var wrongSound = new Howl({
             src: [`internal/audio/SB_34_Audio_04.mp3`],//change here
         });
-        wrongSound.play();
+        wrongSfx.on('end', () => {
+            wrongSound.play();
+        })
         wrongSound.on('end', () => {
             setClick(true)
             setwrongHL01(false)

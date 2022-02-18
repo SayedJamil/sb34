@@ -1,3 +1,4 @@
+import { Howl } from 'howler';
 import lottie from 'lottie-web';
 import { useContext, useEffect, useState, Fragment, useRef } from 'react'
 import { SceneContext } from '../contexts/SceneContext'
@@ -9,6 +10,19 @@ export default function Scenes({ sprites, Bg = "" }) {
 
   const containerRef2 = useRef(null);
   useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setisLoading(false)
+      }, 3000)//change time here to 3000
+      // var bubblesfx = new Howl({
+      //   src: [`internal/audio/Bubble-pops-sound.mp3`],//change here
+      //   volume: 0.5,
+      // });
+      // bubblesfx.play();
+    }
+  }, [isLoading])
+
+  useEffect(() => {
     if (transition && containerRef2.current && isLoading) {
       const ch = lottie.loadAnimation({
         name: "placeholder",
@@ -18,16 +32,11 @@ export default function Scenes({ sprites, Bg = "" }) {
         autoplay: true,
         animationData: transition,
       });
-    }
 
+    }
   }, [transition, isLoading]);
-  // useEffect(() => {
-  //   if (isLoading) {
-  //     setTimeout(() => {
-  //       setisLoading(false)
-  //     }, 3000)//change time here to 3000
-  //   }
-  // }, [isLoading])
+
+
   return (
     <div id="vision">
       {Bg !== "" && <img

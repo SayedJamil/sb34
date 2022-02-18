@@ -2,7 +2,6 @@ body {
   margin: 0px;
   padding: 0px;
   background: black;
-  /* cursor: url("/src/styles/SB_26_hand.svg"), auto; */
 }
 * {
   -webkit-user-drag: none;

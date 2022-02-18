@@ -29,6 +29,7 @@ function Activity02() {
 
     useEffect(() => {
         if (act02array.length === 7) {
+            setisLoading(true)
             setSceneId('/activity02end')
         }
         if (!isLoading) {
@@ -93,20 +94,25 @@ function Activity02() {
         }
 
     }
-
     const rightAnswerClicked = () => {
         setClick(false)
+        var rightsfx = new Howl({
+            src: [`internal/audio/Correct-answer.mp3`],//change here
+        });
+        rightsfx.play();
         var rightsound = new Howl({
             src: [`internal/audio/SB_34_Audio_06.mp3`],//change here
         });
-        rightsound.play();
+        rightsfx.on('end', () => {
+            rightsound.play();
+        });
         rightsound.on('end', () => {
-            setisLoading(true)
             setTimeout(() => {
                 setIteration(iteration + 1)
             }, 3000)
-            if (act02array.length === 8) {
-                setSceneId('/')
+            if (act02array.length === 7) {
+                setisLoading(true)
+                setSceneId('/activity02end')
             } else
                 if (iteration % 2 == 0) {
                     playSound.stop()
@@ -123,11 +129,17 @@ function Activity02() {
 
     const wrongAnswerClicked = () => {
         setClick(false)
-        var rightsound = new Howl({
+        var wrongSfx = new Howl({
+            src: [`internal/audio/Wrong-answer.mp3`],//change here
+        });
+        wrongSfx.play()
+        var wrongSound = new Howl({
             src: [`internal/audio/SB_34_Audio_04.mp3`],//change here
         });
-        rightsound.play();
-        rightsound.on('end', () => {
+        wrongSfx.on('end', () => {
+            wrongSound.play();
+        })
+        wrongSound.on('end', () => {
             setClick(true)
             setLeftWrongHL(false)
             setRightWrongHL(false)

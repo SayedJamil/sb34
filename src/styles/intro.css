@@ -3,11 +3,11 @@
   justify-content: center;
 }
 .introTitle {
-  height: 30%;
+  height: 35%;
   position: fixed;
   z-index: 1;
-  top: 37%;
-  left: 32%;
+  top: 35%;
+  left: 25%;
 }
 .introTitleBG {
   height: 100%;
@@ -17,9 +17,27 @@
 }
 .play_btn {
   position: fixed;
-  height: 25%;
+  height: 30%;
   z-index: 1;
   left: 85%;
-  top: 73%;
+  top: 69%;
   cursor: pointer;
+}
+
+.replay_btn {
+  position: fixed;
+  height: 28%;
+  z-index: 1;
+  left: 45%;
+  top: 72%;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.wellDoneAnim {
+  height: 70%;
+  position: fixed;
+  z-index: 2;
+  top: 5%;
+  left: 20%;
 }
