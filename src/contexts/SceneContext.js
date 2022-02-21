@@ -15,6 +15,7 @@ export default function SceneContextProvider({ children }) {
   const [disableIcon, setDisableIcon] = useState(0)
   const [enableActivity02, setEnableActivity02] = useState(false)
   const [act02array, setAct02Array] = useState([])
+  const [usedIcon, setUsedIcon] = useState(100)
   // loading part
   useEffect(() => {
     if (isLoading) {
@@ -25,7 +26,7 @@ export default function SceneContextProvider({ children }) {
   }, [isLoading])
 
   return (
-    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, transition, setTransition, setIteration, iteration, jugNum, setJugNum, bubbleNum, setBubbleNum, disableIcon, setDisableIcon, enableActivity02, setEnableActivity02, act02array, setAct02Array }}>
+    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, transition, setTransition, setIteration, iteration, jugNum, setJugNum, bubbleNum, setBubbleNum, disableIcon, setDisableIcon, enableActivity02, setEnableActivity02, act02array, setAct02Array, usedIcon, setUsedIcon }}>
       {children}
     </SceneContext.Provider>
   )

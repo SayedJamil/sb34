@@ -8,44 +8,52 @@ import '../styles/intro.css'
 import { Howl } from 'howler';
 import lottie from 'lottie-web';
 
-function End() {
+function SaveWaterEnd() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.end)
     const { setSceneId, Assets, setisLoading, setAct02Array, setIteration, isLoading } = useContext(SceneContext);
     const { endscene } = Assets;
-    const Ref20 = useRef(null);
+    const Ref22 = useRef(null);
     const sound = new Howl({
-        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_07.mp3`],
-    });
-    const welldonesound = new Howl({
-        src: [`ee02_ow_tvhd_pl1/audio/children_clapping.mp3`],
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_26.mp3`],
     });
     // SB_34_Audio_26
     const [playSound, setPlaySound] = useState(sound)
-    const [playWellDone, setPlayWellDone] = useState(welldonesound)
+    const remembersound = new Howl({
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_17.mp3`],
+        autoplay: false,
+    });
+    const [playRemSound, setPlayRemSound] = useState(remembersound)
     const [click, setClick] = useState(false)
     useEffect(() => {
         if (!isLoading) {
             playSound.play()
         }
-
-        playSound.on('end', () => {
-            playWellDone.play()
+        playSound.on('play', () => {
+            lottie.play()
         })
-        playWellDone.on('end', () => {
-            setClick(true)
-            navigator.vibrate(300);
+        playSound.on('end', () => {
+            lottie.pause()
+            playRemSound.play()
+        })
+        playRemSound.on('play', () => {
+            lottie.play()
+        })
+        playRemSound.on('end', () => {
+            lottie.pause()
+            setisLoading(true)
+            setSceneId('/end')
         })
     }, [isLoading])
     useEffect(() => {
-        if (endscene?.lottie && Ref20.current && !Loading) {
+        if (endscene?.lottie && Ref22.current && !Loading) {
             try {
                 lottie.loadAnimation({
-                    name: "welldoneAnim",
-                    container: Ref20.current,
+                    name: "saveWaterEndLady",
+                    container: Ref22.current,
                     renderer: "svg",
                     loop: true,
-                    autoplay: true,
-                    animationData: endscene?.lottie[0],
+                    autoplay: false,
+                    animationData: endscene?.lottie[1],
                 })
             } catch (err) {
                 console.log(err)
@@ -59,15 +67,7 @@ function End() {
             Bg={Bg}
             sprites={
                 <div>
-                    <Image src={endscene?.sprites[0]} alt="" className="replay_btn"
-                        onClick={() => {
-                            if (click) {
-                                setisLoading(true)
-                                setSceneId('/')//change scenes here
-                            }
-                        }
-                        } />
-                    <div ref={Ref20} className="wellDoneAnim" id="welldoneAnim"></div>
+                    <div ref={Ref22} className="saveWaterEndLady" id="saveWaterEndLady"></div>
                 </div>
             }
         />
@@ -75,4 +75,4 @@ function End() {
     )
 }
 
-export default End
+export default SaveWaterEnd

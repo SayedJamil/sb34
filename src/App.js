@@ -10,6 +10,7 @@ import End from './scenes/End';
 import Explain from './scenes/Explain';
 import Intro from './scenes/Intro';
 import SaveWater from './scenes/SaveWater';
+import SaveWaterEnd from './scenes/SaveWaterEnd';
 import WaterUses from './scenes/WaterUses';
 import './styles/app.css'
 import Image from './utils/elements/Image';
@@ -79,8 +80,11 @@ function App() {
     </div>
   )
 
-  const toggleMute = () => { setmute(!mute) }
-
+  const toggleMute = () => {
+    setmute(!mute)
+    navigator.vibrate(100);
+  }
+  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
   return (
     <GameContainer>
       {
@@ -125,6 +129,9 @@ function App() {
       </Router>
       <Router sceneId="/savewater02">
         <SaveWater />
+      </Router>
+      <Router sceneId="/savewaterend">
+        <SaveWaterEnd />
       </Router>
       <Router sceneId="/end">
         <End />

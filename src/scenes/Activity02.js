@@ -95,6 +95,7 @@ function Activity02() {
 
     }
     const rightAnswerClicked = () => {
+        navigator.vibrate(100);
         setClick(false)
         var rightsfx = new Howl({
             src: [`ee02_ow_tvhd_pl1/audio/Correct-answer.mp3`],//change here
@@ -128,6 +129,7 @@ function Activity02() {
     }
 
     const wrongAnswerClicked = () => {
+        navigator.vibrate(250);
         setClick(false)
         var wrongSfx = new Howl({
             src: [`ee02_ow_tvhd_pl1/audio/Wrong-answer.mp3`],//change here

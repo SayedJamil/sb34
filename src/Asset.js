@@ -265,6 +265,7 @@ const AssetsMap = {
         ],
         lottie: [
             `${lottie}welldone_1.json`,
+            `${lottie}Scene_61.json`,
         ]
     },
 }

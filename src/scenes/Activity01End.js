@@ -19,7 +19,6 @@ function Activity01End() {
         autoplay: false,
     });
     const [playSound, setPlaySound] = useState(sound)
-
     useEffect(() => {
         if (!isLoading) {
             setIteration(1)

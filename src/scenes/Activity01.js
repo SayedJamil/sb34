@@ -8,7 +8,7 @@ import useLoadAsset from '../utils/useLoadAsset';
 import '../styles/activity.css'
 function Activity01() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01)
-    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum, usedIcon, setUsedIcon } = useContext(SceneContext);
     const { activitytype01 } = Assets;
     const [cl1, setCL1] = useState('')
     const [cl2, setCL2] = useState('')
@@ -33,10 +33,13 @@ function Activity01() {
         playSound.on('end', () => {
             setClick(true)
         })
-    }, [isLoading])
 
+    }, [isLoading])
     useEffect(() => {
         randomize()
+    }, [])
+    useEffect(() => {
+
         if (iteration > 5) {
             setisLoading(true)
             setSceneId('/activity01end')
@@ -56,16 +59,25 @@ function Activity01() {
         setCL2(random2)
         setCL3(random3)
         var random4 = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+        console.log(usedIcon)
+        console.log(random4)
+        while (random4 === usedIcon) {
+            console.log(random4)
+            random4 = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+        }
+        console.log(random4)
+        setUsedIcon(random4)
         sethW(random4)
         var random5 = Math.floor(Math.random() * (18 - 9 + 1)) + 9;
         var random6 = Math.floor(Math.random() * (18 - 9 + 1)) + 9;
-        if (random6 == random5) {
+        while (random6 === random5) {
             random6 = Math.floor(Math.random() * (18 - 9 + 1)) + 9;
         }
         sethNw01(random5)
         sethNw02(random6)
     }
     const rightAnswerClicked = () => {
+        navigator.vibrate(100);
         setClick(false)
         var rightsfx = new Howl({
             src: [`ee02_ow_tvhd_pl1/audio/Correct-answer.mp3`],//change here
@@ -97,6 +109,7 @@ function Activity01() {
     }
 
     const wrongAnswerClicked = () => {
+        navigator.vibrate(250);
         setClick(false)
         var wrongSfx = new Howl({
             src: [`ee02_ow_tvhd_pl1/audio/Wrong-answer.mp3`],//change here

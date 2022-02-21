@@ -36,6 +36,7 @@ function Intro() {
                         onClick={() => {
                             setIteration(1)
                             playSound.stop()
+                            navigator.vibrate(100);
                         }
                         } />
                 </div>

@@ -41,7 +41,7 @@ function SaveWater() {
         setTimeout(() => {
           setisLoading(true)
           setEnableActivity02(true)
-          setSceneId('/end')
+          setSceneId('/savewaterend')
           setBubbleNum(0)
         }, 3000)
 
