@@ -17,7 +17,13 @@ function Activity02End() {
         src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_16.mp3`],
         autoplay: false,
     });
+    const sound01 = new Howl({
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_17.mp3`],
+        autoplay: false,
+    });
+
     const [playSound, setPlaySound] = useState(sound)
+    const [playSound01, setPlaySound01] = useState(sound01)
     useEffect(() => {
         if (!isLoading) {
             setIteration(1)
@@ -27,15 +33,11 @@ function Activity02End() {
         playSound.on('play', () => {
             lottie.play()
         })
-        const sound = new Howl({
-            src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_17.mp3`],
-            autoplay: false,
-        });
 
         playSound.on('end', () => {
-            sound.play()
+            playSound01.play()
         })
-        sound.on('end', () => {
+        playSound01.on('end', () => {
             setisLoading(true)
             setBubbleNum(6)
             setDisableIcon(0)
@@ -64,6 +66,7 @@ function Activity02End() {
 
     const handleNextClick = () => {
         playSound.stop()
+        playSound01.stop()
         setisLoading(true)
         setBubbleNum(6)
         setDisableIcon(0)
@@ -76,7 +79,9 @@ function Activity02End() {
             sprites={
                 <>
                     <Image src={activitytype02end?.sprites[1]} alt="" className="next_btn"
-                        onClick={() => handleNextClick()} />
+                        onClick={() => {
+                            handleNextClick()
+                        }} />
                     <div ref={Ref4} className="activity02endLady" id="activity02EndLady"></div>
 
 

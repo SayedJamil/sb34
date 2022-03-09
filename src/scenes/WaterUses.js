@@ -8,7 +8,7 @@ import useLoadAsset from '../utils/useLoadAsset';
 import '../styles/wateruse.css'
 function WaterUses() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.waterUses)
-    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, bubbleNum, setBubbleNum, disableIcon, setDisableIcon, setEnableActivity02 } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, bubbleNum, setBubbleNum, disableIcon, setDisableIcon, setEnableActivity02, act01array } = useContext(SceneContext);
     const { waterusescene } = Assets;
     var audioNum = String(bubbleNum)
     console.log(audioNum)
@@ -20,6 +20,7 @@ function WaterUses() {
     const [iconsSetNum, setIconsSetNum] = useState(12)
 
     useEffect(() => {
+
         if (!isLoading) {
             playSound.play()
         }
@@ -41,7 +42,8 @@ function WaterUses() {
                 setTimeout(() => {
                     setisLoading(true)
                     setEnableActivity02(true)
-                    setSceneId('/activity011')
+                    setSceneId('/activity01end')
+                    act01array.pop()
                     setBubbleNum(0)
                     setDisableIcon(0)
                 }, 3000)

@@ -24,8 +24,8 @@ function App() {
   const [noSoundButton, setNoSoundButton] = useState(null);
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
-  const [BG_sound, setBG_sound] = useState(null);
-  const { setTransition } = useContext(SceneContext);
+
+  const { setTransition, BG_sound, setBG_sound } = useContext(SceneContext);
 
   const loadBgImage = async () => {
     const unmute = await LoadImage(`ee02_ow_tvhd_pl1/button/Buttons-20.svg`);
@@ -37,12 +37,12 @@ function App() {
     const bg_sound = new Howl({
       src: [`ee02_ow_tvhd_pl1/audio/Entire_video_song.mp3`],
       loop: true,
-      volume: 0.5,
-      autoplay: true
+      volume: 0.05,
+      autoplay: false
     })
-    bg_sound.play()
     setBG_sound(bg_sound)
   }
+  console.log(BG_sound)
   const loadLottie = async () => {
     const data = await LoadJson(`ee02_ow_tvhd_pl1/lottie/water-filling-animation.json`);
     setTransition(data);
@@ -50,8 +50,7 @@ function App() {
 
   useEffect(() => {
     if (BG_sound !== null) {
-      BG_sound?.play()
-      BG_sound.volume(0.1)
+      BG_sound.volume(0.05)
     }
   }, [BG_sound])
 
@@ -68,7 +67,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 2000)
+    }, 4000)
     loadBgImage()
     loadAudio()
     loadLottie()

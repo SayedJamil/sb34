@@ -8,17 +8,18 @@ import '../styles/activity.css'
 import { Howl } from 'howler';
 
 
-function Activity02() {
+function Activity02Temp() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity02)
     const { setSceneId, Assets, setisLoading, iteration, setIteration, isLoading, jugNum, setJugNum, enableActivity02, act02array, setAct02Array, bubbleNum, setBubbleNum } = useContext(SceneContext);
     const { activitytype02 } = Assets;
     const [correctOptionSide, setCorrectOptionSide] = useState('')
+
     const [iconNum, setIconNum] = useState()
     const [leftCorrectHL, setLeftCorrectHL] = useState(false)
     const [leftWrongHL, setLeftWrongHL] = useState(false)
     const [rightCorrectHL, setRightCorrectHL] = useState(false)
     const [rightWrongHL, setRightWrongHL] = useState(false)
-    const [click, setClick] = useState(false)
+    const [click, setClick] = useState(true)
     const [enablePointer, setEnablePointer] = useState(false)
 
     const sound = new Howl({
@@ -26,10 +27,19 @@ function Activity02() {
         autoplay: false,
     });
     const [playSound, setPlaySound] = useState(sound)
+
     useEffect(() => {
-        playSound.on('play', () => {
+        if (act02array.length === 7) {
+            setisLoading(true)
+            playSound.unload()
+            setSceneId('/activity02end')
+        }
+        if (!isLoading) {
+            playSound.play()
+            randomize()
+        }
+        playSound.on('end', () => {
             setEnablePointer(true)
-            setClick(true)
             console.log('Click now')
             setTimeout(() => {
                 playSound.play()
@@ -38,7 +48,7 @@ function Activity02() {
         playSound.on('mute', () => {
             setTimeout(() => {
                 playSound.mute(false)
-            }, 3200)
+            }, 2000)
         })
         playSound.on('stop', () => {
             setTimeout(() => {
@@ -48,19 +58,6 @@ function Activity02() {
         })
         console.log('Number of items in the array', act02array.length)
         console.log('Current bubble number', bubbleNum)
-        if (act02array.length === 7) {
-            setisLoading(true)
-            playSound.unload()
-            setSceneId('/activity02end')
-        }
-    }, [])
-
-    useEffect(() => {
-        if (!isLoading) {
-            playSound.play()
-            randomize()
-        }
-
     }, [isLoading])
 
     const randomize = () => {
@@ -127,21 +124,21 @@ function Activity02() {
             rightsound.play();
         });
         rightsound.on('end', () => {
-            // setTimeout(() => {
-            setIteration(iteration + 1)
-            // }, 1000)
+            setTimeout(() => {
+                setIteration(iteration + 1)
+            }, 3000)
             if (act02array.length === 7) {
                 setisLoading(true)
                 playSound.unload()
                 setSceneId('/activity02end')
-            }
-            if (iteration % 2 == 0) {
-                playSound.unload()
-                setSceneId('/activity021')
-            } else {
-                playSound.unload()
-                setSceneId('/activity022')
-            }
+            } else
+                if (iteration % 2 == 0) {
+                    playSound.unload()
+                    setSceneId('/activity021')
+                } else {
+                    playSound.unload()
+                    setSceneId('/activity022')
+                }
             setClick(true)
         })
         setJugNum(jugNum + 1)
@@ -224,4 +221,4 @@ function Activity02() {
 
     );
 }
-export default Activity02;
+export default Activity02Temp;

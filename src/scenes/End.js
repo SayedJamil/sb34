@@ -10,7 +10,7 @@ import lottie from 'lottie-web';
 
 function End() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.end)
-    const { setSceneId, Assets, setisLoading, setAct02Array, setIteration, isLoading } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, setAct02Array, setIteration, isLoading, setBubbleNum, setDisableIcon, setEnableActivity02, setUsedIcon, setJugNum, BG_sound } = useContext(SceneContext);
     const { endscene } = Assets;
     const Ref20 = useRef(null);
     const sound = new Howl({
@@ -19,9 +19,13 @@ function End() {
     const welldonesound = new Howl({
         src: [`ee02_ow_tvhd_pl1/audio/children_clapping.mp3`],
     });
+    const endSound = new Howl({
+        src: [`ee02_ow_tvhd_pl1/audio/replayAudio.mp3`],
+    });
     // SB_34_Audio_26
     const [playSound, setPlaySound] = useState(sound)
     const [playWellDone, setPlayWellDone] = useState(welldonesound)
+    const [playEndSound, setPlayEndSound] = useState(endSound)
     const [click, setClick] = useState(false)
     useEffect(() => {
         if (!isLoading) {
@@ -32,7 +36,10 @@ function End() {
             playWellDone.play()
         })
         playWellDone.on('end', () => {
+            playEndSound.play()
             setClick(true)
+        })
+        playEndSound.on('end', () => {
             navigator.vibrate(300);
         })
     }, [isLoading])
@@ -63,6 +70,14 @@ function End() {
                         onClick={() => {
                             if (click) {
                                 setisLoading(true)
+                                setEnableActivity02(false)
+                                setAct02Array([])
+                                setUsedIcon(100)
+                                setBubbleNum(0)
+                                setDisableIcon(0)
+                                setJugNum(1)
+                                setIteration(1)
+                                BG_sound.unload()
                                 setSceneId('/')//change scenes here
                             }
                         }

@@ -20,6 +20,8 @@ function Explain() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        var changeClass = document.querySelector('.music_button')
+        changeClass.style.display = 'block'
         if (!isLoading) {
             playSound.play()
         }
@@ -52,7 +54,8 @@ function Explain() {
             Bg={Bg}
             sprites={
                 <div className='introScreen'>
-                    <Image src={explain?.sprites[2]} alt="" className="next_btn"
+                    <Image src={explain?.sprites[2]} alt=""
+                        className='next_btn'
                         onClick={() => {
                             playSound.stop()
                             setisLoading(true)

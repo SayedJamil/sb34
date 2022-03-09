@@ -10,7 +10,7 @@ import lottie from 'lottie-web';
 
 function Activity01End() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01end)
-    const { setSceneId, Assets, setisLoading, isLoading, setEnableActivity02, enableActivity02, setIteration, setJugNum } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, isLoading, setEnableActivity02, enableActivity02, setIteration, setJugNum, setAct02Array } = useContext(SceneContext);
     const { activitytype01end } = Assets;
     const Ref2 = useRef(null);
     const Ref3 = useRef(null);
@@ -18,32 +18,38 @@ function Activity01End() {
         src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_08.mp3`],
         autoplay: false,
     });
+    const sound01 = new Howl({
+        src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_30.mp3`],
+        autoplay: false,
+        volume: 1,
+    });
+    const [playSound01, setPlaySound01] = useState(sound01)
     const [playSound, setPlaySound] = useState(sound)
+
     useEffect(() => {
         if (!isLoading) {
             setIteration(1)
             setJugNum(1)
-            playSound.play()
+            if (enableActivity02) {
+                playSound01.play()
+            } else {
+                playSound.play()
+            }
+
         }
         playSound.on('play', () => {
             lottie.play()
         })
-        const sound = new Howl({
-            src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_09.mp3`],
-            autoplay: false,
-        });
-
-        playSound.on('end', () => {
-            sound.play()
+        playSound01.on('play', () => {
+            lottie.play()
         })
-        sound.on('end', () => {
+        playSound.on('end', () => {
             setisLoading(true)
-            if (enableActivity02) {
-                setSceneId('/activity021')
-            } else {
-                setSceneId('/wateruses01')
-            }
-
+            setSceneId('/wateruses01')
+        })
+        playSound01.on('end', () => {
+            setisLoading(true)
+            setSceneId('/activity021')
         })
     }, [isLoading])
 
@@ -54,7 +60,7 @@ function Activity01End() {
                     name: "activity01EndLady",
                     container: Ref2.current,
                     renderer: "svg",
-                    loop: true,
+                    loop: false,
                     autoplay: false,
                     animationData: activitytype01end?.lottie[0],
                 })
@@ -80,7 +86,10 @@ function Activity01End() {
     }, [Assets, Loading])
     const handleNextClick = () => {
         playSound.stop()
+        playSound01.stop()
         setisLoading(true)
+        setJugNum(0)
+        setAct02Array([])
         if (enableActivity02) {
             setSceneId('/activity021')
         } else {
@@ -93,7 +102,7 @@ function Activity01End() {
             sprites={
                 <>
                     <Image src={activitytype01end?.sprites[1]} alt="" className="next_btn"
-                        onClick={() => handleNextClick()} />
+                        onClick={() => { handleNextClick() }} />
                     {
                         (!enableActivity02)
                             ? <div ref={Ref2} className="activity01endLady" id="activity01EndLady"></div>

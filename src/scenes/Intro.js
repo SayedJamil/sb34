@@ -9,22 +9,33 @@ import { Howl } from 'howler';
 
 function Intro() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
-    const { setSceneId, Assets, setisLoading, setAct02Array, setIteration } = useContext(SceneContext);
+    const { setSceneId, Assets, setisLoading, setAct02Array, setIteration, BG_sound } = useContext(SceneContext);
     const { intro } = Assets;
     const sound = new Howl({
         src: [`ee02_ow_tvhd_pl1/audio/SB_34_Audio_01.mp3`],
     });
 
     const [playSound, setPlaySound] = useState(sound)
-
+    const [buttonPressed, setButtonPressed] = useState(false)
     useEffect(() => {
-        playSound.play()
-        playSound.on('stop', () => {
-            setisLoading(true)
-            setSceneId('/explain')//change scenes here
-        })
+        var changeClass = document.querySelector('.music_button')
+        changeClass.style.display = 'none'
     }, [])
-
+    console.log(BG_sound)
+    const handleIntroButton = () => {
+        BG_sound?.play()
+        setButtonPressed(true)
+        setIteration(1)
+        navigator.vibrate(100)
+        playSound.play()
+        playSound.on('end', () => {
+            setTimeout(() => {
+                playSound.unload()
+                setisLoading(true)
+                setSceneId('/explain')
+            }, 1000)
+        })
+    }
     return (
         <Scenes
             Bg={Bg}
@@ -32,11 +43,9 @@ function Intro() {
                 <div className='introScreen'>
                     <Image src={intro?.sprites[0]} alt="" className="introTitle" />
                     <Image src={intro?.sprites[1]} alt="" className="introTitleBG" />
-                    <Image src={intro?.sprites[2]} alt="" className="play_btn"
+                    <Image src={intro?.sprites[2]} alt="" className={`play_btn ${(buttonPressed) ? 'disappearButton' : null}`}
                         onClick={() => {
-                            setIteration(1)
-                            playSound.stop()
-                            navigator.vibrate(100);
+                            handleIntroButton()
                         }
                         } />
                 </div>

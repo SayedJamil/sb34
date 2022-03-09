@@ -61,18 +61,19 @@ const AssetsMap = {
             `${heaxagonIconUsed}SB_34_Hexagon-Icon_Water_07.svg`,//06
             `${heaxagonIconUsed}SB_34_Hexagon-Icon_Water_08.svg`,//07
             `${heaxagonIconUsed}SB_34_Hexagon-Icon_Water_09.svg`,//08
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_01.svg`,//09
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_02.svg`,//10
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_03.svg`,//11
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_11.svg`,//12
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_05.svg`,//13
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_06.svg`,//14
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_07.svg`,//15
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_08.svg`,//16
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_09.svg`,//17
-            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_10.svg`,//18
-            `${hilighters}SB_34_Hexagon-Icon_Green-Highlight.svg`,//19
-            `${hilighters}SB_34_Hexagon-Icon_Red-Highlight.svg`,//20
+            `${heaxagonIconUsed}SB_34_Hexagon-Icon_Water_10.svg`,//08+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_01.svg`,//09+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_02.svg`,//10+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_03.svg`,//11+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_11.svg`,//12+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_05.svg`,//13+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_06.svg`,//14+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_07.svg`,//15+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_08.svg`,//16+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_09.svg`,//17+1
+            `${heaxagonIconNotUsed}SB_34_Hexagon-Icon_Nowater_10.svg`,//18+1
+            `${hilighters}SB_34_Hexagon-Icon_Green-Highlight.svg`,//19+1
+            `${hilighters}SB_34_Hexagon-Icon_Red-Highlight.svg`,//20+1
             `${jug}SB_34_Jug_01.svg`,
             `${jug}SB_34_Jug_02.svg`,
             `${jug}SB_34_Jug_03.svg`,
